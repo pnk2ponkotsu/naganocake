@@ -1,0 +1,26 @@
+
+<div class="row">
+
+  <h2 style="margin: 20px 0;">商品一覧</h2>
+	<div class="col-xs-9 col-xs-offset-1">
+	  <div class="product-card-content">
+
+
+        <% if @items.present? %>
+		  <% @items.each do |item| %>
+		    <div class="col-xs-3" style="padding-right: 0px; padding-left: 0px; margin: 10px 0;">
+
+			  <%= link_to item_path(item.id) do %>
+				     <%= image_tag item.get_image(100,100) %><br>
+				<%= item.name %>
+				<%= item.price.to_s(:delimited, delimiter: ',') %>
+	    	  <% end %>
+		    </div>
+		  <% end %>
+		<% else %>
+          <p>商品はありません。</p>
+        <% end %>
+	  </div>
+	</div>
+</div>
+
