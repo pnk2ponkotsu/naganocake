@@ -1,8 +1,10 @@
 class Public::ItemsController < ApplicationController
 
+def top
+ @items = Item.all
+end
 
  def index
-  
   @items = Item.all
  end
 
